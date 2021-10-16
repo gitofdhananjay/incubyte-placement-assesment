@@ -3,29 +3,30 @@ package calculator;
 import custom_exception.StringCalculaterException;
 
 class StringCalculator {
-	String delimeter = ",";
 
-	public int add(String input)throws StringCalculaterException {
+	public int add(String input) throws StringCalculaterException {
    	 	if(input.isEmpty())
     			return 0;
   	  	
-	    return sum(input);
-    	
-    		
-  	  }
+	    	return sum(input);
+	}
 
 	private int sum(String input) throws StringCalculaterException {
 		String delimeter = ",";
-		if(input.startsWith("//")) {
+		if(input.startsWith("//") && !input.startsWith("//[")) {
 			delimeter = input.substring(2, 3);
 			input = input.substring(5);
     		}
-		
+		if (input.startsWith("//[")) {
+			delimeter = input.substring(3, input.indexOf("]"));
+			input = input.substring(9);
+			}
+		input = input.replace(delimeter, ",");
 		if(input.contains("\n")) {
-    		input = input.replaceAll("\n", delimeter);
+    		input = input.replaceAll("\n", ",");
     		
     		}
-		String[] srr = input.split(delimeter);
+		String[] srr = input.split(",");
 		int sum = 0;
 		for(String s : srr) {
 			if(Integer.signum(Integer.parseInt(s)) < 0)
