@@ -30,6 +30,8 @@ class StringCalculator {
 		for(String s : srr) {
 			if(Integer.signum(Integer.parseInt(s)) < 0)
 				throw new StringCalculaterException("negatives not allowed");
+			if(Integer.parseInt(s)>1000)
+				continue;
 			sum += Integer.parseInt(s);
 		}
 		return sum;
