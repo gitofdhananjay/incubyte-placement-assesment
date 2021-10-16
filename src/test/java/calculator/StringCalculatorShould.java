@@ -22,6 +22,15 @@ public class StringCalculatorShould {
     @Test
     public void string_with_single_number_should_return_number_as_int() {
         assertEquals(1, sCal.add("1"));
+    }
+    
+    @Test
+    public void string_comma_seperated_numbers_returns_sum_as_int() {
         assertEquals(12, sCal.add("1,5,6"));
     }
+    @Test
+    public void handles_newLine_returns_sum() {
+        assertEquals(12, sCal.add("1,5\n6"));
+    }
+    
 }
