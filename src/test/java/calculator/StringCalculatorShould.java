@@ -28,9 +28,15 @@ public class StringCalculatorShould {
     public void string_comma_seperated_numbers_returns_sum_as_int() {
         assertEquals(12, sCal.add("1,5,6"));
     }
+    
     @Test
     public void handles_newLine_returns_sum() {
         assertEquals(12, sCal.add("1,5\n6"));
+    }
+    
+    @Test
+    public void support_different_delimeters() {
+        assertEquals(3, sCal.add("//;\\n1;2"));
     }
     
 }
