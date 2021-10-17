@@ -55,5 +55,9 @@ public class StringCalculatorShould {
     public void handles_any_length_delimeter() throws StringCalculaterException {
        assertEquals(7, sCal.add("//[***]\\n1***3***3***1002"));
    }
+    @Test
+    public void handles_two_delimeter() throws StringCalculaterException {
+       assertEquals(6, sCal.add("//[*][%]\\n1*2%3"));
+   }
   
 }
