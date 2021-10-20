@@ -27,7 +27,8 @@ class StringCalculator {
 		int sum = 0;
 		Pattern p = Pattern.compile("\\d+");
         Matcher m = p.matcher(input);
-        while(m.find()) {
+        while(m.find() && sum<1000) {
+   
 			if(Integer.parseInt(m.group())>1000)
 				continue;
 			sum += (Integer.parseInt(m.group()));
